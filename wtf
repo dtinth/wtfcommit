@@ -1,0 +1,2 @@
+#!/bin/ruby
+IO.readlines("emojis").map(&:strip).select { |x| x != nil && !x.empty? }.group_by { |x| x[0] }.tap { |map| puts ARGV[0].chars.map { |ch| map[ch] ? ":#{map[ch].sample}:" : ch == ' ' ? '_' : ch } * ' ' }
